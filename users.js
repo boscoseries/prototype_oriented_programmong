@@ -27,6 +27,19 @@ User.prototype.getUserById = function (id) {
   };
 };
 
+User.prototype.getUserByName = function (name) {
+  var name = name.toUpperCase();
+  var usersWithName = [];
+  all_users.forEach(function (obj) {
+    if (obj.name == name) usersWithName.push(obj);
+  });
+  if (usersWithName.length) {
+    return usersWithName;
+  } else {
+    return false
+  };
+};
+
 
 
 
