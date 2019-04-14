@@ -13,6 +13,10 @@ Admin.prototype = Object.create(User.prototype);
 // set the Admin constructor to point to the User constructor
 Admin.prototype.constructor = Admin;
 
+Admin.prototype.getAllUsers = function () {
+  return all_users;
+};
+
 Admin.prototype.deleteUserById = function (id) {
   var isAUser = admin.getUserById(id);
   if (isAUser) {
