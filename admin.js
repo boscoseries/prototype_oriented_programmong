@@ -29,6 +29,11 @@ Admin.prototype.deleteUserById = function (id) {
   };
 };
 
+Admin.prototype.deleteAllUsers = function () {
+  all_users = [];
+  return 'All users deleted'
+};
+
 
 var admin = new Admin();
 
