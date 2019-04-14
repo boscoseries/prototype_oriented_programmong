@@ -1,0 +1,14 @@
+{
+  "name": "oop",
+  "version": "1.0.0",
+  "description": "A project to solve common tasks using Object Oriented Programming",
+  "main": "oopSolution.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "Johnbosco",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.7.1"
+  }
+}
