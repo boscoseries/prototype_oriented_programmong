@@ -15,6 +15,19 @@ User.prototype.createUser = function (name, email, password) {
   return newUser;
 };
 
+User.prototype.getUserById = function (id) {
+  var userWithId = {};
+  all_users.forEach(function (obj) {
+    if (obj.id == id) userWithId = obj;
+  });
+  if (userWithId.id) {
+    return userWithId;
+  } else {
+    return false
+  };
+};
+
+
 
 
 var user = new User();
