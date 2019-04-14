@@ -16,4 +16,10 @@ describe("Admin user tests", function () {
     expect(delete_user).toContain('user not found');
   });
 
+  test("Expect deleteAllUsers() to empty the users database", function () {
+    var deleted = admin.deleteAllUsers();
+    var all_users = admin.getAllUsers();
+    expect(all_users).toEqual(expect.arrayContaining([]));
+  });
+
 })
