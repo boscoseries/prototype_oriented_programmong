@@ -21,5 +21,15 @@ describe("User tests", function () {
     expect(received).toBeFalsy();
   });
 
+  test("Expect getUserByName('bashy') to get the user with name bashy", function() {
+    var received = users.getUserByName('bashy');
+    expect(received).not.toHaveLength(0);
+  });
+
+  test("Expect getUserByName('invalidName') to get the user with name bashy", function() {
+    var received = users.getUserByName('invalidName');
+    expect(received).toBeFalsy();
+  });
+
 
 })
