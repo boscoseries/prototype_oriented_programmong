@@ -40,6 +40,23 @@ User.prototype.getUserByName = function (name) {
   };
 };
 
+User.prototype.updateUserDetails = function (id, new_name, new_password) {
+  var new_name = new_name.toUpperCase();
+  var updated_user = {};
+  var isAUser = user.getUserById(id);
+  if (!isAUser) {
+    return 'user not found'
+  } else {
+    all_users.forEach(function (a_user) {
+      if (a_user.id == id) {
+        a_user.name = new_name;
+        a_user.password = new_password;
+        updated_user = a_user;
+      };
+    });
+    return updated_user
+  };
+};
 
 
 var user = new User();
