@@ -3,6 +3,12 @@ var admin = new Admin();
 
 describe("Admin user tests", function () {
 
+  test("Expect getAllUsers() to return an array of all users", function () {
+    var created_user = admin.createUser('Bash', 'bash@gmail.com', 'bashpass');
+    expect(admin.getAllUsers()).not.toHaveLength(0);
+    expect(admin.getAllUsers()).toContainEqual(created_user);
+  });
+
   test("Expect deleteUserById(2) to delete the user with Id = 2", function () {
     var new_user= admin.createUser('new Bash', 'newbash@gmail.com', 'newbashpass');
     var received = admin.deleteUserById(1);
