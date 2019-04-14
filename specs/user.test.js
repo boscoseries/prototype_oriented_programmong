@@ -31,5 +31,17 @@ describe("User tests", function () {
     expect(received).toBeFalsy();
   });
 
+  test("Expect updateUserDetails(1, 'newpaul', 'paulnewpass' ) to update details of user with id=1", function() {
+    var received = users.updateUserDetails(1, 'newpaul', 'paulnewpass' );
+    var user_id_1 = users.getUserById(1);
+    expect(received).toEqual(expect.objectContaining({ id: 1, name: 'NEWPAUL', password: 'paulnewpass' }));
+    expect(user_id_1).toHaveProperty('password', 'paulnewpass');
+  });
+
+  test("Expect updateUserDetails(1000, 'newpaul', 'paulnewpass' ) to return 'user not found'", function() {
+    var received = users.updateUserDetails(1000, 'newpaul', 'paulnewpass' );
+    expect(received).toContain('user not found');
+  });
+
 
 })
