@@ -43,5 +43,4 @@ describe("User tests", function () {
     expect(received).toContain('user not found');
   });
 
-
 })

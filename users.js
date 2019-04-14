@@ -42,7 +42,6 @@ User.prototype.getUserByName = function (name) {
 
 
 
-
 var user = new User();
 
 //user.createUser('Bash', 'bash2@gmail.com', 'bashpass');
