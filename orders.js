@@ -5,13 +5,34 @@ var order_table = [];
 
 function Order() {
 
+  this.id = 0;
+};
+
+Order.prototype.newId = function () {
+  return this.id += 1;
+};
+
+Order.prototype.dateOfOrder = function() {
+  var newDate = new Date();
+  return newDate.toDateString()
 }
 
-Order.prototype.createOrder = function() {
+Order.prototype.timeOfOrder = function() {
+  var newDate = new Date();
+  return newDate.toLocaleTimeString()
+}
 
+Order.prototype.createOrder = function(user_id, products) {
+  newProducts = { user_id, time_of_order: order.timeOfOrder(), date_of_order: order.dateOfOrder(), order_id: order.newId(), products: products };
+  order_table.push(newProducts)
+  return newProducts;
 }
 
 
-var user_order = new Order();
+var order = new Order();
 
-module.exports = user_order
+
+//console.log(order.timeOfOrder());
+console.log( order.createOrder(1, ['book', 'biro']) );
+
+module.exports = order;
