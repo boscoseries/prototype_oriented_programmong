@@ -61,4 +61,10 @@ describe("order tests", function() {
     expect(deleted_order).toContain('order not found');
   });
 
+  test("Expect deleteAllOrders() to empty the orders database", function () {
+    var delete_database = admin.deleteAllOrders();
+    var all_orders = admin.readAllOrders();
+    expect(all_orders).toEqual(expect.arrayContaining([]));
+  });
+
 })
