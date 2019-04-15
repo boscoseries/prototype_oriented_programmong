@@ -2,8 +2,10 @@ var database = require('./database');
 var User = require('./users');
 
 var all_users = database.users_table;
+var all_orders = database.orders_table;
 
 
+// USERS
 
 function Admin() {
   User.call(this);
@@ -35,6 +37,12 @@ Admin.prototype.deleteAllUsers = function () {
   all_users = [];
   return 'All users deleted'
 };
+
+//ORDERS
+
+Admin.prototype.readAllOrders = function() {
+  return all_orders
+}
 
 
 var admin = new Admin();

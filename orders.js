@@ -1,5 +1,5 @@
-var users = require('./users');
-var admin = require('./admin');
+var Users = require('./users');
+var Admin = require('./admin');
 var database = require('./database');
 
 var all_orders = database.orders_table;
@@ -41,12 +41,13 @@ Order.prototype.createOrder = function (user_id, products) {
 }
 
 var order = new Order();
-var user = new users();
+var user = new Users();
 
 //user.createUser('Bash', 'bash2@gmail.com', 'bashpass');
 
 
-//console.log(database.users_table);
-console.log(order.createOrder(1, { book: 5, biro: 2}));
+//console.log(all_users);
+//console.log(order.createOrder(1, { book: 5, biro: 2}));
+//console.log(order.createOrder(1, { balls: 15, pens: 12}))
 
-module.exports = order;
+module.exports = Order;

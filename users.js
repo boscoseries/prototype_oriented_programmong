@@ -12,7 +12,7 @@ User.prototype.newId = function () {
 
 User.prototype.createUser = function (name, email, password) {
   var name = name.toUpperCase();
-  newUser = { name, email, password, id: user.newId() };
+  var newUser = { name, email, password, id: user.newId() };
   all_users.push(newUser)
   return newUser;
 };
