@@ -38,7 +38,7 @@ Order.prototype.createOrder = function (user_id, products) {
     });
     return newProducts;
   };
-}
+};
 
 var order = new Order();
 var user = new Users();

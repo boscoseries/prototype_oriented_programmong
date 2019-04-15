@@ -70,6 +70,20 @@ Admin.prototype.updateOrderDetails = function (user_id, order_id, new_products) 
   };
 };
 
+Admin.prototype.deleteOrderById = function(user_id, order_id) {
+  var isAUser = admin.getUserById(user_id);
+  var isValidOrder = admin.readOrderById(order_id);
+
+  if (isAUser && isValidOrder) {
+    var index = all_orders.indexOf(isValidOrder);
+    all_orders.splice(index, 1);
+    return 'order deleted';
+  }
+  else {
+    return 'order not found';
+  }
+}
+
 
 var admin = new Admin();
 //var order = new Order();
