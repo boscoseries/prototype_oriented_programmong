@@ -1,7 +1,7 @@
 var users = require('./users');
-var admin = require('./admin');
+var database = require('./database');
 
-var order_table = [];
+var all_orders = database.orders_table;
 
 function Order() {
 
@@ -24,7 +24,7 @@ Order.prototype.timeOfOrder = function() {
 
 Order.prototype.createOrder = function(user_id, products) {
   newProducts = { user_id, time_of_order: order.timeOfOrder(), date_of_order: order.dateOfOrder(), order_id: order.newId(), products: products };
-  order_table.push(newProducts)
+  all_orders.push(newProducts)
   return newProducts;
 }
 
@@ -33,6 +33,6 @@ var order = new Order();
 
 
 //console.log(order.timeOfOrder());
-console.log( order.createOrder(1, ['book', 'biro']) );
+//console.log( order.createOrder(1, ['book', 'biro']) );
 
 module.exports = order;

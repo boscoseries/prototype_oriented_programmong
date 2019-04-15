@@ -1,4 +1,6 @@
-var all_users = require('./database');
+var database = require('./database');
+var all_users = database.users_table;
+
 
 function User() {
   this.id = 0
@@ -64,6 +66,7 @@ var user = new User();
 //user.createUser('Bash', 'bash2@gmail.com', 'bashpass');
 //user.createUser('Paul', 'paul2@gmail.com', 'paulpass');
 
+console.log(all_users)
 //console.log(user.getAllUsers());
 
 

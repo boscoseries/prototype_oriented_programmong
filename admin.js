@@ -1,5 +1,7 @@
-var all_users = require('./database');
+var database = require('./database');
 var User = require('./users');
+
+var all_users = database.users_table;
 
 
 
