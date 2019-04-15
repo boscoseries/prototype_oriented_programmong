@@ -41,11 +41,11 @@ Admin.prototype.deleteAllUsers = function () {
 
 //ORDERS
 
-Admin.prototype.readAllOrders = function() {
+Admin.prototype.readAllOrders = function () {
   return all_orders
 }
 
-Admin.prototype.readOrderById = function(order_id) {
+Admin.prototype.readOrderById = function (order_id) {
   var orderWithId = {};
   all_orders.forEach(function (order) {
     if (order.order_id == order_id) orderWithId = order;
@@ -53,9 +53,22 @@ Admin.prototype.readOrderById = function(order_id) {
   if (orderWithId.order_id) {
     return orderWithId;
   } else {
-    return 'order not found'
+    return false
   };
-}
+};
+
+
+Admin.prototype.updateOrderDetails = function (user_id, order_id, new_products) {
+  var isAUser = admin.getUserById(user_id);
+  var isValidOrder = admin.readOrderById(order_id);
+
+  if (isAUser && isValidOrder) {
+    isValidOrder.products = new_products;
+    return isValidOrder
+  } else {
+    false;
+  };
+};
 
 
 var admin = new Admin();
@@ -69,7 +82,8 @@ admin.createUser('Emma', 'emma@gmail.com', 'emmapass');
 //admin.deleteUserById(2)
 
 
-console.log(admin.readOrderById(1));
+// admin.readOrderById(1);
+console.log(admin.updateOrderDetails(100, 1, { book: 10, red_label: 2 }))
 
 
 
