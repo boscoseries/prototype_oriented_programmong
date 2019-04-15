@@ -41,8 +41,10 @@ var admin = new Admin();
 
 
 
-//admin.createUser('Bash', 'bash2@gmail.com', 'bashpass');
+admin.createUser('Emma', 'emma@gmail.com', 'emmapass');
 //admin.createUser('Paul', 'paul2@gmail.com', 'paulpass');
+
+//admin.deleteUserById(2)
 
 
 //console.log(user.getAllUsers());
