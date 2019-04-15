@@ -1,5 +1,6 @@
 var database = require('./database');
 var User = require('./users');
+
 var Order = require('./orders')
 
 var all_users = database.users_table;
@@ -42,13 +43,17 @@ Admin.prototype.deleteAllUsers = function () {
 //ORDERS
 
 Admin.prototype.readAllOrders = function () {
-  return all_orders
+  return all_orders;
 }
 
-Admin.prototype.readOrderById = function (order_id) {
+Admin.prototype.readOrderById = function (user_id, order_id) {
   var orderWithId = {};
+  var isAUser = admin.getUserById(user_id);
+
   all_orders.forEach(function (order) {
-    if (order.order_id == order_id) orderWithId = order;
+    if (isAUser && isAUser.id == order.user_id && order.order_id == order_id) {
+      orderWithId = order;
+    }
   });
   if (orderWithId.order_id) {
     return orderWithId;
@@ -59,49 +64,65 @@ Admin.prototype.readOrderById = function (order_id) {
 
 
 Admin.prototype.updateOrderDetails = function (user_id, order_id, new_products) {
+  var updatedOrder = {};
   var isAUser = admin.getUserById(user_id);
-  var isValidOrder = admin.readOrderById(order_id);
 
-  if (isAUser && isValidOrder) {
-    isValidOrder.products = new_products;
-    return isValidOrder
+  all_orders.forEach(function (order) {
+    if (isAUser && isAUser.id == order.user_id && order.order_id == order_id) {
+      order.products = new_products;
+      updatedOrder = order;
+    }
+  });
+  if (updatedOrder.order_id) {
+    return updatedOrder;
   } else {
-    false;
+    return false
   };
-};
 
-Admin.prototype.deleteOrderById = function(user_id, order_id) {
+}
+
+Admin.prototype.deleteOrderById = function (user_id, order_id) {
+
+  var deletedOrder;
   var isAUser = admin.getUserById(user_id);
-  var isValidOrder = admin.readOrderById(order_id);
 
-  if (isAUser && isValidOrder) {
-    var index = all_orders.indexOf(isValidOrder);
-    all_orders.splice(index, 1);
-    return 'order deleted';
-  }
-  else {
-    return 'order not found';
+  all_orders.forEach(function (order) {
+    if (isAUser && isAUser.id == order.user_id && order.order_id == order_id) {
+      var index = all_orders.indexOf(order);
+      deletedOrder = all_orders.splice(index, 1);
+      deletedOrder = 'order deleted';
+    }
+  });
+  if (deletedOrder == 'order deleted') {
+     return deletedOrder;
+  } else {
+    return false
   };
 };
 
-Admin.prototype.deleteAllOrders = function() {
-  return all_orders = [];
+Admin.prototype.deleteAllOrders = function () {
+  all_orders = [];
+  return 'All orders deleted'
 }
 
 
 var admin = new Admin();
-//var order = new Order();
 
 
-
-admin.createUser('Emma', 'emma@gmail.com', 'emmapass');
-//admin.createUser('Paul', 'paul2@gmail.com', 'paulpass');
-
-//admin.deleteUserById(2)
-
-
-// admin.readOrderById(1);
-console.log(admin.updateOrderDetails(100, 1, { book: 10, red_label: 2 }))
+console.log(admin.getAllUsers());
+console.log(admin.deleteUserById(3));
+console.log(admin.getAllUsers());
+//console.log(admin.deleteAllUsers());
+console.log(admin.getAllUsers());
+console.log(admin.readAllOrders());
+console.log(admin.readOrderById(1, 2));
+console.log(admin.updateOrderDetails(1, 2, { book: 10, red_label: 2 }));
+console.log(admin.readAllOrders());
+console.log(admin.deleteOrderById(1, 2));
+console.log(admin.readOrderById(1, 2));
+console.log(admin.readAllOrders());
+//console.log(admin.deleteAllOrders());
+console.log(admin.readAllOrders());
 
 
 

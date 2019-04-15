@@ -43,11 +43,9 @@ Order.prototype.createOrder = function (user_id, products) {
 var order = new Order();
 var user = new Users();
 
-//user.createUser('Bash', 'bash2@gmail.com', 'bashpass');
 
-
-//console.log(all_users);
-order.createOrder(1, { book: 5, biro: 2});
-order.createOrder(1, { balls: 15, pens: 12});
+console.log(order.createOrder(1, { book: 5, biro: 2}));
+console.log(order.createOrder(1, { balls: 15, pens: 12}));
+console.log(order.createOrder(3, { TV: 1, games: 2}));
 
 module.exports = Order;

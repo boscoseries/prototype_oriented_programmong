@@ -10,7 +10,7 @@ describe("Admin user tests", function () {
   });
 
   test("Expect deleteUserById(2) to delete the user with Id = 2", function () {
-    var new_user= admin.createUser('new Bash', 'newbash@gmail.com', 'newbashpass');
+    //var new_user= admin.createUser('new Bash', 'newbash@gmail.com', 'newbashpass');
     var received = admin.deleteUserById(1);
     var userId_1 = admin.getUserById(1);
     expect(received).toContain('user deleted');
