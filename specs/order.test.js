@@ -27,6 +27,11 @@ describe("order tests", function() {
   test("readAllOrders() should return all orders from the orders_table", function() {
     var received = admin.readAllOrders();
     expect(received).toContainEqual(new_order);
+  });
+
+  test("readOrderById(1) should return the order with Id 1", function() {
+    var received = admin.readOrderById(1);
+    expect(received).toHaveProperty('order_id', 1);
   })
 
 
