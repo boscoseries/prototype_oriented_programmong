@@ -49,4 +49,16 @@ describe("order tests", function() {
     expect(received).toBeFalsy();
   });
 
+  test("Expect deleteOrderById(1, 1) to delete the user_1's order_id=1", function () {
+    var received = admin.deleteOrderById(1, 1);
+    var orderId_1 = admin.deleteOrderById(1);
+    expect(received).toContain('order deleted');
+    expect(orderId_1).toContain('order not found');
+  });
+
+  test("Expect deleteOrderById(1, 2000) to be Falsy()", function () {
+    var deleted_order = admin.deleteOrderById(1);
+    expect(deleted_order).toContain('order not found');
+  });
+
 })
