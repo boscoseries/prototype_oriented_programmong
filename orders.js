@@ -47,7 +47,7 @@ var user = new Users();
 
 
 //console.log(all_users);
-//console.log(order.createOrder(1, { book: 5, biro: 2}));
-//console.log(order.createOrder(1, { balls: 15, pens: 12}))
+order.createOrder(1, { book: 5, biro: 2});
+order.createOrder(1, { balls: 15, pens: 12});
 
 module.exports = Order;

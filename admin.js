@@ -1,5 +1,6 @@
 var database = require('./database');
 var User = require('./users');
+var Order = require('./orders')
 
 var all_users = database.users_table;
 var all_orders = database.orders_table;
@@ -44,8 +45,21 @@ Admin.prototype.readAllOrders = function() {
   return all_orders
 }
 
+Admin.prototype.readOrderById = function(order_id) {
+  var orderWithId = {};
+  all_orders.forEach(function (order) {
+    if (order.order_id == order_id) orderWithId = order;
+  });
+  if (orderWithId.order_id) {
+    return orderWithId;
+  } else {
+    return 'order not found'
+  };
+}
+
 
 var admin = new Admin();
+//var order = new Order();
 
 
 
@@ -55,7 +69,7 @@ admin.createUser('Emma', 'emma@gmail.com', 'emmapass');
 //admin.deleteUserById(2)
 
 
-//console.log(user.getAllUsers());
+console.log(admin.readOrderById(1));
 
 
 

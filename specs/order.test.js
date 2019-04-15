@@ -34,6 +34,9 @@ describe("order tests", function() {
     expect(received).toHaveProperty('order_id', 1);
   })
 
-
+  test("readOrderById(1000) should return 'order not found", function() {
+    var received = admin.readOrderById(1000);
+    expect(received).toContain('order not found');
+  })
 
 })
