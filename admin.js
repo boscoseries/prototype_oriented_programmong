@@ -81,7 +81,11 @@ Admin.prototype.deleteOrderById = function(user_id, order_id) {
   }
   else {
     return 'order not found';
-  }
+  };
+};
+
+Admin.prototype.deleteAllOrders = function() {
+  return all_orders = [];
 }
 
 

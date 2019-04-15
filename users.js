@@ -63,9 +63,10 @@ User.prototype.updateUserDetails = function (id, new_name, new_password) {
 
 var user = new User();
 
-user.createUser('Bash', 'bash2@gmail.com', 'bashpass');
-user.createUser('Paul', 'paul2@gmail.com', 'paulpass');
-
+console.log(user.createUser('Bash', 'bash2@gmail.com', 'bashpass'));
+console.log(user.createUser('Paul', 'paul2@gmail.com', 'paulpass'));
+console.log(user.getUserById(1));
+console.log(user.getUserByName('paul'));
 //console.log(all_users)
 //console.log(user.getAllUsers());
 
