@@ -3,7 +3,7 @@ var all_users = database.users_table;
 
 
 function User() {
-  this.id = 0
+  this.id = 0;
 };
 
 User.prototype.newId = function () {
@@ -25,7 +25,7 @@ User.prototype.getUserById = function (id) {
   if (userWithId.id) {
     return userWithId;
   } else {
-    return false
+    return false;
   };
 };
 
@@ -38,7 +38,7 @@ User.prototype.getUserByName = function (name) {
   if (usersWithName.length) {
     return usersWithName;
   } else {
-    return false
+    return false;
   };
 };
 
@@ -56,20 +56,20 @@ User.prototype.updateUserDetails = function (id, new_name, new_password) {
         updated_user = a_user;
       };
     });
-    return updated_user
+    return updated_user;
   };
 };
 
 
 var user = new User();
 
-console.log(user.createUser('Bash', 'bash2@gmail.com', 'bashpass'));
-console.log(user.createUser('Paul', 'paul@gmail.com', 'paulpass'));
-console.log(user.createUser('Bash3', 'bash3@gmail.com', 'bash3pass'));
-console.log(user.getUserById(1));
-console.log(user.getUserByName('paul'));
-console.log(user.updateUserDetails(1, 'new_bash', 'newbashpass'));
-console.log(user.getUserById(1));
+// console.log(user.createUser('Bash', 'bash2@gmail.com', 'bashpass'));
+// console.log(user.createUser('Paul', 'paul@gmail.com', 'paulpass'));
+// console.log(user.createUser('Bash3', 'bash3@gmail.com', 'bash3pass'));
+// console.log(user.getUserById(1));
+// console.log(user.getUserByName('paul'));
+// console.log(user.updateUserDetails(1, 'new_bash', 'newbashpass'));
+// console.log(user.getUserById(1));
 
 
 

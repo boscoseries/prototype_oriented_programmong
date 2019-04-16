@@ -1,3 +1,4 @@
+var inheritProperty = require('./helpers')
 var database = require('./database');
 var User = require('./users');
 
@@ -14,10 +15,7 @@ function Admin() {
 }
 
 // set Admin user to inherit the User properties and prototypes
-Admin.prototype = Object.create(User.prototype);
-
-// set the Admin constructor to point to the User constructor
-Admin.prototype.constructor = Admin;
+inheritProperty(Admin, User);
 
 Admin.prototype.getAllUsers = function () {
   return all_users;
@@ -109,20 +107,21 @@ Admin.prototype.deleteAllOrders = function () {
 var admin = new Admin();
 
 
-console.log(admin.getAllUsers());
-console.log(admin.deleteUserById(3));
-console.log(admin.getAllUsers());
-//console.log(admin.deleteAllUsers());
-console.log(admin.getAllUsers());
-console.log(admin.readAllOrders());
-console.log(admin.readOrderById(1, 2));
-console.log(admin.updateOrderDetails(1, 2, { book: 10, red_label: 2 }));
-console.log(admin.readAllOrders());
-console.log(admin.deleteOrderById(1, 2));
-console.log(admin.readOrderById(1, 2));
-console.log(admin.readAllOrders());
-//console.log(admin.deleteAllOrders());
-console.log(admin.readAllOrders());
+// //console.log("GET ALL USERS:", admin.getAllUsers());
+// console.log(admin.deleteUserById(3));
+// console.log(admin.createUser('Bas', 'bas@gmail.com', 'baspass'));
+// console.log(admin.getAllUsers());
+// //console.log(admin.deleteAllUsers());
+// console.log(admin.getAllUsers());
+// console.log(admin.readAllOrders());
+// console.log(admin.readOrderById(1, 2));
+// console.log(admin.updateOrderDetails(1, 2, { book: 10, red_label: 2 }));
+// console.log(admin.readAllOrders());
+// console.log(admin.deleteOrderById(1, 2));
+// console.log(admin.readOrderById(1, 2));
+// console.log(admin.readAllOrders());
+// console.log(admin.deleteAllOrders());
+// console.log(admin.readAllOrders());
 
 
 
